@@ -4,13 +4,13 @@ A **School Management System** built with **Node.js, Prisma, and MongoDB** for h
 
 ## 🚀 Features
 
-✅ Add a new student (POST /students)
-✅ Retrieve all students (GET /students)
-✅ Fetch student details by registration number (GET /students/:regNo)
-✅ Update student details (PUT /students/:regNo)
-✅ Delete a student (supports soft deletion by updating status) (DELETE /students/:regNo)
-✅ Error handling and validation
-✅ API testing via cURL scripts.
+✅ Add a new student (POST /students)  
+✅ Retrieve all students (GET /students)  
+✅ Fetch student details by registration number (GET /students/:regNo)  
+✅ Update student details (PUT /students/:regNo)  
+✅ Delete a student (supports soft deletion by updating status) (DELETE /students/:regNo)  
+✅ Error handling and validation  
+✅ API testing via cURL scripts.  
 ✅ MongoDB integration with Prisma ORM.
 
 ---
