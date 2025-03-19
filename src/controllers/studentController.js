@@ -1,8 +1,9 @@
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
-const { validateStudent } = require("../utils/validators");
+import { PrismaClient } from "@prisma/client";
+import { validateStudent } from "../utils/validators.js";
 
-exports.createStudent = async (req, res) => {
+const prisma = new PrismaClient();
+
+export const createStudent = async (req, res) => {
   try {
     const { error } = validateStudent(req.body);
     if (error) return res.status(400).json({ error: error.details[0].message });
@@ -16,7 +17,7 @@ exports.createStudent = async (req, res) => {
   }
 };
 
-exports.getAllStudents = async (req, res) => {
+export const getAllStudents = async (req, res) => {
   try {
     const students = await prisma.student.findMany();
     res.status(200).json(students);
@@ -25,7 +26,7 @@ exports.getAllStudents = async (req, res) => {
   }
 };
 
-exports.getStudentByRegNo = async (req, res) => {
+export const getStudentByRegNo = async (req, res) => {
   try {
     const student = await prisma.student.findUnique({
       where: { registrationNo: req.params.regNo },
@@ -39,7 +40,7 @@ exports.getStudentByRegNo = async (req, res) => {
   }
 };
 
-exports.updateStudent = async (req, res) => {
+export const updateStudent = async (req, res) => {
   try {
     const student = await prisma.student.update({
       where: { registrationNo: req.params.regNo },
@@ -51,7 +52,7 @@ exports.updateStudent = async (req, res) => {
   }
 };
 
-exports.deleteStudent = async (req, res) => {
+export const deleteStudent = async (req, res) => {
   try {
     await prisma.student.delete({
       where: { registrationNo: req.params.regNo },

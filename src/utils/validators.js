@@ -1,6 +1,6 @@
-const Joi = require("joi");
+import Joi from "joi";
 
-exports.validateStudent = (student) => {
+export const validateStudent = (student) => {
   const schema = Joi.object({
     registrationNo: Joi.string().required(),
     name: Joi.string().required(),

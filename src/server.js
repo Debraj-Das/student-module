@@ -1,8 +1,8 @@
-require("dotenv").config();
-const express = require("express");
-const morgan = require("morgan");
-const studentRoutes = require("./routes/studentRoutes");
-const { PrismaClient } = require("@prisma/client");
+import "dotenv/config";
+import express from "express";
+import morgan from "morgan";
+import studentRoutes from "./routes/studentRoutes.js";
+import { PrismaClient } from "@prisma/client";
 
 const app = express();
 const prisma = new PrismaClient();
@@ -17,7 +17,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "Something went wrong!" });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
